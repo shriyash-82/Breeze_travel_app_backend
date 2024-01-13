@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors');
 const dbConnection = require("./config/dbConfig")
 const hotelRouter = require("./routes/hotel.router");
 const singleHotelRouter = require("./routes/singleHotel.router")
@@ -10,6 +11,7 @@ const categoriesAddedToDb = require('./routes/importCategory.router');
 const authRouter = require('./routes/auth.router');
 const wishListRouter = require("./routes/wishlist.router");
 const PORT = 3500;
+app.use(cors())
 app.use(express.json());
 dbConnection();
 // api's for geting and saving hotel and category data
